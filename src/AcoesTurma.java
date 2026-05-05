@@ -1,24 +1,15 @@
 
 
-import java.util.Scanner;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class AcoesTurma {
 
-    Scanner leitor = new Scanner(System.in);
+    
     Map<String, Aluno> alunos = new LinkedHashMap<>();
 
-    public void incluirAluno() {
-        System.out.print("Insira o nome: ");
-        String nome = leitor.next();
-
-        System.out.print("Insira a nota P1: ");
-        double p1 = leitor.nextDouble();
-
-        System.out.print("Insira a nota P2: ");
-        double p2 = leitor.nextDouble();
-
+    public void incluirAluno(String nome, double p1, double p2) {
         Aluno aluno = new Aluno(nome, p1, p2);
         alunos.put(nome, aluno);
     }
@@ -36,10 +27,7 @@ public class AcoesTurma {
         }
     }
 
-    public void imprimirEspecifico() {
-        leitor.nextLine();
-        System.out.print("Digite o nome: ");
-        String nome = leitor.nextLine();
+    public void imprimirEspecifico(String nome) {
         if (alunos.containsKey(nome)) {
             Aluno aluno = alunos.get(nome);
             aluno.imprimeAluno();
@@ -50,13 +38,11 @@ public class AcoesTurma {
         }
     }
 
-    public void excluirAluno() {
-        System.out.println("Digite o nome do aluno a ser excluido:");
-        String nome = leitor.next();
+    public void excluirAluno(String nome) {
         if (alunos.containsKey(nome)) {
             alunos.remove(nome);
             System.out.println("\n\n################################");
-            System.out.println("ALUNO EXCLUIDO!");
+            System.out.println("Aluno excluído!");
             System.out.println("################################\n\n");
         } else {
             System.out.println("\n\n################################");
@@ -65,22 +51,10 @@ public class AcoesTurma {
         }
     }
 
-    public void atualizarAluno() {
-        System.out.println("Digite o nome do aluno para atualizar cadastro:");
-        String nome = leitor.next();
-
+    public void atualizarAluno(String nome, String nome2, double p1, double p2) {
         if (alunos.containsKey(nome)) {
             Aluno aluno = alunos.get(nome);
             aluno.imprimeAluno();
-            System.out.println("Sobrescreva as informações:");
-            System.out.print("Insira o nome: ");
-            String nome2 = leitor.next();
-
-            System.out.print("Insira a nota P1: ");
-            double p1 = leitor.nextDouble();
-
-            System.out.print("Insira a nota P2: ");
-            double p2 = leitor.nextDouble();
             Aluno aluno2 = new Aluno(nome2, p1, p2);
             alunos.remove(nome, aluno);
             alunos.put(nome2, aluno2);

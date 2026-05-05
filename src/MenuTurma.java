@@ -22,7 +22,13 @@ public class MenuTurma {
                         System.out.println("Encerrando...");
                         break;
                     case 1:
-                        acoes.incluirAluno();
+                        System.out.print("Insira o nome: ");
+                        String nome = leitor.next();
+                        System.out.print("Insira a nota P1: ");
+                        double p1 = leitor.nextDouble();
+                        System.out.print("Insira a nota P2: ");
+                        double p2 = leitor.nextDouble();
+                        acoes.incluirAluno(nome, p1, p2);
                         break;
                     case 2:
                         System.out.println("1 - Visualizar todos os registros\n2 - Visualizar aluno específico");
@@ -30,16 +36,29 @@ public class MenuTurma {
                         if (escolha == 1) {
                             acoes.imprimirTodos();
                         } else if (escolha == 2) {
-                            acoes.imprimirEspecifico();
+                            System.out.print("Digite o nome do aluno a ser visualizado: ");
+                            nome = leitor.next();
+                            acoes.imprimirEspecifico(nome);
                         } else {
                             System.out.println("Opção inválida!");
                         }
                         break;
                     case 3:
-                        acoes.excluirAluno();
+                        System.out.print("Digite o nome do aluno a ser excluído: ");
+                        nome = leitor.next();
+                        acoes.excluirAluno(nome);
                         break;
                     case 4:
-                        acoes.atualizarAluno();
+                        System.out.print("Digite o nome do aluno para atualizar cadastro: ");
+                        nome = leitor.next();
+                        System.out.println("Sobrescreva as informações: ");
+                        System.out.print("Insira o nome: ");
+                        String nome2 = leitor.next();
+                        System.out.print("Insira a nota P1: ");
+                        p1 = leitor.nextDouble();
+                        System.out.print("Insira a nota P2: ");
+                        p2 = leitor.nextDouble();
+                        acoes.atualizarAluno(nome, nome2, p1, p2 );
                         break;
                     default:
                         System.out.println("Opção inválida!");
