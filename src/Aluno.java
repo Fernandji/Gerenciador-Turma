@@ -16,8 +16,10 @@ public class Aluno {
         System.out.println("Nome: " + this.nome);
         System.out.println("Nota P1: " + this.p1);
         System.out.println("Nota P2: " + this.p2);
-        this.media = (p1 + 2 * p2) / 3;
-        System.out.printf("%s%.2f%n---------------%n", "Media: ", this.media);
+        System.out.printf("%s%.2f%n---------------%n", "Media: ", calculoMedia());
+    }
+    public double calculoMedia(){
+        return this.media = (p1 + 2 * p2) / 3;
     }
 
 }
