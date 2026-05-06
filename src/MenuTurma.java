@@ -66,7 +66,7 @@ public class MenuTurma {
                 }
             } catch (InputMismatchException e) {
                 System.out.println(
-                        "#################################\nDigite uma opção válida!\n#################################");
+                        "\nDigite uma opção válida!\n");
                 leitor.nextLine();
             }
         }

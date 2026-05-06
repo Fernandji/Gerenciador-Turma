@@ -12,6 +12,7 @@ public class AcoesTurma {
     public void incluirAluno(String nome, double p1, double p2) {
         Aluno aluno = new Aluno(nome, p1, p2);
         alunos.put(nome, aluno);
+        System.out.println("\nAluno adicionado com sucesso!\n");
     }
 
     public void imprimirTodos() {
