@@ -1,5 +1,4 @@
 
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -12,7 +11,7 @@ public class MenuTurma {
 
         while (opcao != 0) {
             try {
-                System.out.println("\n|------ GERENCIADOR DE TURMA ------|");
+                System.out.println("|------ GERENCIADOR DE TURMA ------|");
                 System.out.println(
                         "1 - Incluir Aluno\n2 - Visualizar Registros\n3 - Excluir Aluno\n4 - Atualizar Registro\n0 - Encerrar Programa");
 
@@ -51,15 +50,20 @@ public class MenuTurma {
                     case 4:
                         System.out.print("Digite o nome do aluno para atualizar cadastro: ");
                         nome = leitor.next();
-                        System.out.println("Sobrescreva as informações: ");
-                        System.out.print("Insira o nome: ");
-                        String nome2 = leitor.next();
-                        System.out.print("Insira a nota P1: ");
-                        p1 = leitor.nextDouble();
-                        System.out.print("Insira a nota P2: ");
-                        p2 = leitor.nextDouble();
-                        acoes.atualizarAluno(nome, nome2, p1, p2 );
-                        break;
+                        if (acoes.verificarAluno(nome) == true) {
+                            System.out.println("Sobrescreva as informações: ");
+                            System.out.print("Insira o nome: ");
+                            String nome2 = leitor.next();
+                            System.out.print("Insira a nota P1: ");
+                            p1 = leitor.nextDouble();
+                            System.out.print("Insira a nota P2: ");
+                            p2 = leitor.nextDouble();
+                            acoes.atualizarAluno(nome, nome2, p1, p2);
+                            break;
+                        } else {
+                            System.out.println("\nAluno não encontrado!\n");
+                            break;
+                        }
                     default:
                         System.out.println("Opção inválida!");
                         break;
