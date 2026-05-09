@@ -13,6 +13,7 @@ public class AcoesTurma {
         Aluno aluno = new Aluno(nome, p1, p2);
         alunos.put(nome, aluno);
         System.out.println("\nAluno adicionado com sucesso!\n");
+        aluno.imprimeAluno();
     }
 
     public void imprimirTodos() {
